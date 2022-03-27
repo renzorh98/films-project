@@ -50,7 +50,7 @@
                     <q-icon name="search" />
                   </template>
                 </q-input>
-                <q-btn color="primary" icon="autorenew" label="Recargar" @click="getFilms"/>
+                <q-btn color="primary" icon="autorenew" label="Recargar" @click="reload"/>
               </template>
 
               <template v-slot:no-data="{ icon, filter }">
@@ -96,6 +96,11 @@ export default defineComponent({
       }
     ];
 
+    const reload = () => {
+      filter.value ='';
+      getFilms();
+    }
+
     const getFilms = async () => {
       loading.value = true;
       await Api.get("/films")
@@ -122,6 +127,7 @@ export default defineComponent({
     });
 
     return {
+      reload,
       getFilms,
       loading,
       filter,
