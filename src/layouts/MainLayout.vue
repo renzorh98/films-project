@@ -1,53 +1,27 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
+  <q-layout view="lHh lpr lFf" class="shadow-2 rounded-borders">
     <q-header elevated>
       <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
+        <q-avatar>
+          <img alt="logo imagen" src="https://cdn.quasar.dev/logo-v2/svg/logo-mono-white.svg">
+        </q-avatar>
 
         <q-toolbar-title>
-          Quasar App
+          Quasar Framework
         </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <q-btn flat round dense icon="whatshot" />
       </q-toolbar>
     </q-header>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-    >
-      <q-list>
-        <q-item-label
-          header
-        >
-          Essential Links
-        </q-item-label>
-
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
-      </q-list>
-    </q-drawer>
-
     <q-page-container>
-      <router-view />
+      <router-view></router-view>
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue'
-import EssentialLink from 'components/EssentialLink.vue'
 
 const linksList = [
   {
@@ -97,9 +71,6 @@ const linksList = [
 export default defineComponent({
   name: 'MainLayout',
 
-  components: {
-    EssentialLink
-  },
 
   setup () {
     const leftDrawerOpen = ref(false)
