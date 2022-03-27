@@ -1,3 +1,4 @@
+<!--PAGINA DE ERRORES 404 SI NO SE ENCUENTRA LA PAGINA QUE HEMOS BUSCADO-->
 <template>
   <div class="fullscreen bg-blue text-white text-center q-pa-md flex flex-center">
     <div>
@@ -6,7 +7,7 @@
       </div>
 
       <div class="text-h2" style="opacity:.4">
-        Oops. Nothing here...
+        Oops. No encontramos nada aqui...
       </div>
 
       <q-btn
@@ -15,7 +16,7 @@
         text-color="blue"
         unelevated
         to="/"
-        label="Go Home"
+        label="Ir a Inicio"
         no-caps
       />
     </div>
