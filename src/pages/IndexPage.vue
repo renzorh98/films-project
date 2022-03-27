@@ -2,9 +2,6 @@
   <q-page class="flex-block p-s">
     <q-card class="my-card bg-primary text-white">
       <q-card-section>
-
-      </q-card-section>
-      <q-card-section>
         <q-card class="my-card bg-white text-primary">
 
           <div class="q-pa-md">
@@ -48,11 +45,12 @@
               </template>
 
               <template v-slot:top-right>
-                <q-input outlined dense debounce="300" v-model="filter" placeholder="Buscar Film">
+                <q-input outlined dense debounce="300" v-model="filter" placeholder="Busqueda" style="padding-right: 1rem">
                   <template v-slot:append>
                     <q-icon name="search" />
                   </template>
                 </q-input>
+                <q-btn color="primary" icon="autorenew" label="Recargar" @click="getFilms"/>
               </template>
 
               <template v-slot:no-data="{ icon, filter }">
@@ -124,6 +122,7 @@ export default defineComponent({
     });
 
     return {
+      getFilms,
       loading,
       filter,
       films,
@@ -142,6 +141,6 @@ export default defineComponent({
   padding: 1rem 1rem 0 1rem
 
 .my-custome-table
-  max-height: 73vh
+  max-height: 78vh
 </style>
 
