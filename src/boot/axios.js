@@ -1,18 +1,11 @@
-import { boot } from "quasar/wrappers";
 import axios from "axios";
 
-const api = axios.create({ baseURL: "https://ghibliapi.herokuapp.com/" });
-const getFilms = () => {
-  api.get("/films").then((response) => {
-    return response;
-  }).catch((error) => {
-    console.warn("https://ghibliapi.herokuapp.com/films:" + error);
-  });
-};
+const api = axios.create({ baseURL: "https://ghibliapi.herokuapp.com" });
 
-export default boot(({ app }) => {
-  app.config.globalProperties.$axios = axios;
-  app.config.globalProperties.$api = api;
-});
+export const get = async (url, params, options) => {
+  if (params === void 0) { params = {}; }
+  if (options === void 0) { options = {}; }
 
-export { api, getFilms };
+  return api.get(url, {...options, params})
+}
+
